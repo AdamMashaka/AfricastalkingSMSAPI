@@ -1,5 +1,6 @@
 from flask import Flask, request
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ def sms_callback():
     response_to_sms(request.form["from"], "Hello! How can I help you?")
     return "Success", 201
 
-# SANDBOX_API_KEY = "atsk_292d1cb1da1769170f460c0853a163a897280aeb1df67fef632f46ae67b7760768cf7a38"
+SANDBOX_API_KEY = os.gotenv ("Enter you are sandbox API key.")
 
 def response_to_sms(recipient_phone_number, message):
     requests.post("https://api.sandbox.africastalking.com/version1/messaging",

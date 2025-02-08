@@ -2,12 +2,14 @@ from flask import Flask, request
 import openai
 import requests
 import traceback
+import os
 
 app = Flask(__name__)
 
 # Set your API keys directly in the script
-# OPENAI_API_KEY = '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'
-# SANDBOX_API_KEY = "atsk_292d1cb1da1769170f460c0853a163a897280aeb1df67fef632f46ae67b7760768cf7a38"
+OPENAI_API_KEY = os.gotenv ('Enter you are API key.')
+ 
+SANDBOX_API_KEY = os.gotenv ("Enter you are sandbox API key.")
 
 @app.route('/')
 def Tichika():
