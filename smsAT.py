@@ -6,10 +6,9 @@ import os
 
 app = Flask(__name__)
 
-# Set your API keys directly in the script
-OPENAI_API_KEY = os.gotenv ('Enter you are API key.')
- 
-SANDBOX_API_KEY = os.gotenv ("Enter you are sandbox API key.")
+# Set your API keys using environment variables
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+SANDBOX_API_KEY = os.getenv('SANDBOX_API_KEY')
 
 @app.route('/')
 def Tichika():

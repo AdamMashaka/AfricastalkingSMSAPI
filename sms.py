@@ -16,7 +16,7 @@ def sms_callback():
     response_to_sms(request.form["from"], "Hello! How can I help you?")
     return "Success", 201
 
-SANDBOX_API_KEY = os.gotenv ("Enter you are sandbox API key.")
+SANDBOX_API_KEY = os.getenv('SANDBOX_API_KEY')
 
 def response_to_sms(recipient_phone_number, message):
     requests.post("https://api.sandbox.africastalking.com/version1/messaging",
