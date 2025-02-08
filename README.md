@@ -9,7 +9,30 @@
 
 **click go to sanbox for testing or create team for live production**
 
+Open a SMS section, then you will have two options as a bulk and premium(two way)
+**1:PREMIUM**
 
+i:) open your terminal or Visual studio code then clone this repo 
+
+```
+git clone https://github.com/AdamMashaka/AfricastalkingSMSAPI.git
+
+```
+ii:) open to your vs code,pycharm or any IDE you are familiar with
+
+iii:) run your project as a 
+
+```
+python3 smsAT.py 
+
+```
+*After to run you project, lets make it online so as to communicate between my local project and AT's*
+For me i use ngrok to host my local server 
+**just i type**
+```ngrok http 5000
+```
+![](gateway.png?raw=true),
+ Do not worry about my badgate way, it is just because i turn of my API inorder to push to the github 
 
 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
 
