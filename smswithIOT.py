@@ -8,7 +8,7 @@ app = Flask(__name__)
 def Tichika():
     return 'Temperature'
 
-@app.route('/send_sms', methods=['POST'])
+@app.route('/sms', methods=['POST'])
 def send_sms():
     if request.is_json:
         data = request.get_json()
