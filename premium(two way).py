@@ -6,7 +6,6 @@ import os
 
 app = Flask(__name__)
 
-# Set your API keys using environment variables
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 SANDBOX_API_KEY = os.getenv('SANDBOX_API_KEY')
 
