@@ -13,7 +13,7 @@ def sms_callback():
     print(request.method)
     print(request.form)
     print(request.form["from"])
-    response_to_sms(request.form["from"], "Hello! How can I help you?")
+    response_to_sms(request.form["from"], "Hello! How can I help you my friend?")
     return "Success", 201 
 
 SANDBOX_API_KEY = ('here you can paste you are api key')
