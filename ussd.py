@@ -10,9 +10,9 @@ api_key = "atsk_97e8255e756027a804c58998a4d0301a8f2de17d4aa174817cf8e0cf7f8b3474
 africastalking.initialize(username, api_key) 
 sms = africastalking.SMS
 
-API_BASE_URL = "https://ticevents.onrender.com/api" 
+API_BASE_URL = "https://ticevents.onrender.com/api"  
 
-# Configure logging
+
 logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/ussd', methods=['POST', 'GET']) 
@@ -29,7 +29,7 @@ def ussd_callback():
     user_response = text_array[-1]
 
     if text == "":
-        # Main menu
+       
         response = "CON Karibu TIC events management portal:\n"
         response += "Chagua sehemu unayotaka:\n"
         response += "1. Habari kuhusu event zijazo\n"
@@ -37,7 +37,7 @@ def ussd_callback():
         response += "3. Huduma kwa wateja\n"
 
     elif text == "1":
-        # Fetch upcoming events
+       
         events = get_upcoming_events()
         logging.debug(f"Fetched events: {events}")
         if events:
@@ -47,8 +47,8 @@ def ussd_callback():
         else:
             response = "END Hakuna event zijazo kwa sasa.\n"
 
-    elif text.startswith("1*"):
-        # Show event details and registration option
+    elif text.startswith("1*"): 
+
         events = get_upcoming_events()
         event_index = int(user_response) - 1
         if 0 <= event_index < len(events):
@@ -63,15 +63,15 @@ def ussd_callback():
             response = "END Chaguo batili.\n"
 
     elif text.startswith("1*") and user_response == "1":
-        # Prompt for username to register for the event
+       
         response = "CON Ingiza jina lako:\n"
 
     elif text.startswith("1*") and len(text_array) == 3:
-        # Prompt for email after username
+       
         response = "CON Ingiza barua pepe yako:\n"
 
     elif text.startswith("1*") and len(text_array) == 4:
-        # Register for the event
+       
         events = get_upcoming_events()
         event_index = int(text_array[1]) - 1
         if 0 <= event_index < len(events):
@@ -87,7 +87,7 @@ def ussd_callback():
             response = "END Chaguo batili.\n"
 
     elif text == "2":
-        # Fetch registered events
+       
         events = get_registered_events(phone_number)
         logging.debug(f"Fetched registered events: {events}")
         if events:
