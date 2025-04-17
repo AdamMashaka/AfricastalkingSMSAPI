@@ -5,25 +5,25 @@ import requests
 
 app = Flask(__name__)
 
-# Initialize Africa's Talking API
-username = "sandbox"  # Use "sandbox" for testing; replace with your username for production
-api_key = os.getenv("AT_API_KEY")  # Use environment variable for API key
+
+username = "sandbox"  
+api_key = os.getenv("AT_API_KEY") 
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
 @app.route('/ussd', methods=['POST', 'GET'])
 def ussd_callback():
-    # Retrieve USSD parameters
+   
     session_id = request.values.get("sessionId", "")
     service_code = request.values.get("serviceCode", "*123#")
     phone_number = request.values.get("phoneNumber", "")
     text = request.values.get("text", "")
 
-    # Initialize response
+ 
     response = ""
 
     if text == "":
-        # Main menu
+
         response = "CON Karibu MAPATO AI Kupata Huduma Kuhusu KILIMO:\n"
         response += "Chagua sehemu unayotaka:\n"
         response += "1. Habari kuhusu Bei ya Mazao\n"
@@ -33,7 +33,7 @@ def ussd_callback():
         response += "5. Msaada wa Kiufundi\n"
 
     elif text == "1":
-        # Sub-menu for crop prices
+     
         response = "CON Chagua Mazao unayotaka kujua Bei:\n"
         response += "1. Mahindi\n"
         response += "2. Maharage\n"
@@ -41,11 +41,11 @@ def ussd_callback():
         response += "4. Viazi\n"
 
     elif text == "1*1":
-        # Request location for maize prices
+        
         response = "CON Ingiza eneo lako la kilimo la mahindi"
 
     elif text.startswith("1*1*"):
-        # Fetch maize price based on location
+     
         location = text.split('*')[2]
         maize_price = get_maize_price(location)
 
