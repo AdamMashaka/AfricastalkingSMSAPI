@@ -6,25 +6,25 @@ import logging
 
 app = Flask(__name__)
 username = "sandbox"
-api_key = "atsk_97e8255e756027a804c58998a4d0301a8f2de17d4aa174817cf8e0cf7f8b34742218596b"
+api_key = "atsk_7aaff39211444cb09b2de388b27e11d43e47f68b8421c0b613523296abd27b4dcb630c38"
 africastalking.initialize(username, api_key) 
-sms = africastalking.SMS
+sms = africastalking.SMS 
 
 API_BASE_URL = "https://ticevents.onrender.com/api"  
 
 
-logging.basicConfig(level=logging.DEBUG)
-
+logging.basicConfig(level=logging.DEBUG) 
+ 
 @app.route('/ussd', methods=['POST', 'GET']) 
 def ussd_callback():
-    session_id = request.values.get("sessionId", "atsk_97e8255e756027a804c58998a4d0301a8f2de17d4aa174817cf8e0cf7f8b34742218596b")
+    session_id = request.values.get("sessionId", "atsk_7aaff39211444cb09b2de388b27e11d43e47f68b8421c0b613523296abd27b4dcb630c38")
     service_code = request.values.get("serviceCode", "*384#")
     phone_number = request.values.get("phoneNumber", "+255694021848")
     text = request.values.get("text", "default")
 
     response = ""
 
-    # Split the text input to handle navigation
+    
     text_array = text.split('*')
     user_response = text_array[-1]
 
