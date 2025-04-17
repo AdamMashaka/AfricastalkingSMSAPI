@@ -21,7 +21,6 @@ def ussd_callback():
     phone_number = request.values.get("phoneNumber", "")
     text = request.values.get("text", "")
 
-
     response = ""
 
     if text == "":
